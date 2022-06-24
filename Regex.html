@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="demo">Enter Email:</label>
+    <input id="demo" type="text" placeholder="Enter mail">
+    <p></p>
+    <button onclick="valid()">Validate</button><br>
+    <label for="mode">Enter Tel:</label>
+    <input id="mode" type="text" placeholder="Enter Telephone">
+    <p class="par"></p>
+    <button onclick="validnum()">Validate</button>
+
+    <script>
+    function valid(){
+        const reg = /\w+@+[a-z]+\.+[a-z]{3}/g
+      const input = document.querySelector('input').value;
+        const check = reg.test(input)
+        if(check === true){
+            document.querySelector('p').innerHTML= "Valid format";
+            document.querySelector('p').style.color = "green";
+        }else{
+           document.querySelector('p').innerHTML= "Wrong e-mail format";
+           document.querySelector('p').style.color = "red"
+        }
+    }
+    
+    function validnum(){
+        const regx = /([0-9]{3})+([0-9]{4})+([0-9]{4})/g;
+        const input = document.querySelector('#mode').value;
+        const check = regx.test(input)
+        if(check === true){
+            document.querySelector('.par').innerHTML= "Valid format";
+            document.querySelector('.par').style.color = "green";
+        }else{
+           document.querySelector('.par').innerHTML= "Enter in this format:(XXX)(XXXX)(XXXX)";
+           document.querySelector('.par').style.color = "red"
+    }
+}
+
+    </script>
+</body>
+</html>
